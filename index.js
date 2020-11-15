@@ -1,0 +1,27 @@
+function generateStrings(strings) {
+    const arr = [];
+    while (strings -= 1) arr.push(Math.random().toString(36).substring(7) + Math.random().toString(36).substring(7));
+    return arr;
+}
+
+function run(strings) {
+    const p = performance.now();
+    const arr = generateStrings(strings);
+    while (arr.length) window['aaa'] = method(arr.pop());
+    return performance.now() - p;
+}
+
+function main(method, times, strings) {
+	let i = 0;
+	let perfs = 0;
+	while (i++ < times) perfs += run(method, strings);
+	return 'avg: ' + perfs / (i + 1);
+}
+
+// comment in method to be examined
+
+// string split way
+// main(s => s.split(''),   1000, 1000);
+
+// array from way
+// main(s => Array.from(s), 1000, 1000);
